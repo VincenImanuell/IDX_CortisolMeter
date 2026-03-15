@@ -69,7 +69,7 @@ Dipetakan dari range HV saham IDX (5%–75%) ke skala 0–100.
 
 ---
 
-## 🏃 Jalankan Lokal
+## Jalankan Lokal
 
 ```bash
 # Clone repo
@@ -88,7 +88,7 @@ Buka `http://localhost:3000` di browser.
 
 ---
 
-## 📁 Struktur Project
+## Struktur Project
 
 ```
 IDX_CortisolMeter/
@@ -115,7 +115,7 @@ IDX_CortisolMeter/
 
 ---
 
-## 👤 Author
+## Author
 
 **Vincen Imanuel**
 
