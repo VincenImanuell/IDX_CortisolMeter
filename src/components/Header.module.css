@@ -1,0 +1,52 @@
+.header {
+  text-align: center;
+  padding: 2rem 1rem 1.5rem;
+}
+
+.badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-green);
+  border: 1px solid var(--color-green);
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  margin-bottom: 1.2rem;
+  opacity: 0.85;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 8vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+  background: linear-gradient(150deg, #f0eeff 0%, #a78bfa 50%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;   /* ← ini kuncinya */
+  width: auto;
+}
+
+.emoji {
+  display: block;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  margin-bottom: 0.25rem;
+  -webkit-text-fill-color: initial;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--color-yellow);
+}
