@@ -95,7 +95,18 @@ const CortisolMeter = () => {
 
         <footer className={styles.footer}>
           <span className={styles.mono}>built with low cortisol energy 😌</span>
+          <div className={styles.author}>
+            <span className={styles.authorName}>Dibuat oleh Vincen Imanuel</span>
+            <div className={styles.links}>
+              <a href="https://github.com/VincenImanuell" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <br />
+              <a href="https://linkedin.com/in/vincenimanuel" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <br />
+              <a href="https://instagram.com/vincenimanuellim" target="_blank" rel="noopener noreferrer">Instagram</a>
+            </div>
+          </div>
         </footer>
+
       </div>
     </div>
   )
