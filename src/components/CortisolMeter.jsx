@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import Header from './Header'
 import CortisolGauge from './CortisolGauge'
 import StockSelector from './StockSelector'
@@ -12,10 +12,14 @@ const CortisolMeter = () => {
   const [selectedStock, setSelectedStock] = useState(null)
   const [period, setPeriod] = useState(DEFAULT_PERIOD)
   const { data, loading, error, fetchStock } = useStockData()
+  const gaugeRef = useRef(null)
 
   const handleHitung = () => {
     if (!selectedStock) return
     fetchStock(selectedStock.symbol, period)
+    setTimeout(() => {
+      window.scrollTo({ top: 10, behavior: 'smooth' })
+    }, 100)
   }
 
   const canHitung = selectedStock && !loading
@@ -35,7 +39,9 @@ const CortisolMeter = () => {
         )}
 
         <main className={styles.main}>
-          <CortisolGauge score={data?.cortisolScore ?? 0} loading={loading} />
+          <div ref={gaugeRef}>
+            <CortisolGauge score={data?.cortisolScore ?? 0} loading={loading} />
+          </div>
 
           {data && !loading && (
             <div className={styles.resultCard}>
@@ -68,12 +74,7 @@ const CortisolMeter = () => {
           )}
 
           {data && !loading && (
-            <>
-              <div className={styles.resultCard}>
-                ...
-              <ResultExplanation data={data} />
-              </div>
-            </>
+            <ResultExplanation data={data} />
           )}
 
           <div className={styles.card}>
@@ -105,9 +106,7 @@ const CortisolMeter = () => {
             <span className={styles.authorName}>Dibuat oleh Vincen Imanuel</span>
             <div className={styles.links}>
               <a href="https://github.com/VincenImanuell" target="_blank" rel="noopener noreferrer">GitHub</a>
-              <br />
               <a href="https://linkedin.com/in/vincenimanuel" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-              <br />
               <a href="https://instagram.com/vincenimanuellim" target="_blank" rel="noopener noreferrer">Instagram</a>
             </div>
           </div>
