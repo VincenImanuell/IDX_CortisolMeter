@@ -1,15 +1,14 @@
 import { useState } from 'react'
 import Header from './Header'
 import CortisolGauge from './CortisolGauge'
+import StockSelector from './StockSelector'
 import styles from './CortisolMeter.module.css'
 
 const CortisolMeter = () => {
-  // Placeholder score for Phase 2 demo — will be wired to real data in Phase 4+
-  const [demoScore, setDemoScore] = useState(0)
+  const [selectedStock, setSelectedStock] = useState(null)
 
   return (
     <div className={styles.page}>
-      {/* Background blobs */}
       <div className={styles.blob1} />
       <div className={styles.blob2} />
 
@@ -17,19 +16,15 @@ const CortisolMeter = () => {
         <Header />
 
         <main className={styles.main}>
-          <CortisolGauge score={demoScore} />
+          <CortisolGauge score={0} />
 
-          {/* Temp demo slider — will be replaced by stock selector */}
-          <div className={styles.demoControl}>
-            <p className={styles.demoLabel}>
-              🎛️ Demo — geser untuk test animasi gauge
-            </p>
-            <input
-              type="range" min={0} max={100} value={demoScore}
-              onChange={e => setDemoScore(Number(e.target.value))}
-              className={styles.slider}
+          <div className={styles.card}>
+            <StockSelector
+              selectedStock={selectedStock}
+              onSelect={setSelectedStock}
             />
           </div>
+
         </main>
 
         <footer className={styles.footer}>
