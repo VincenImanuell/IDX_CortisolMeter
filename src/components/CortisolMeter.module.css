@@ -4,7 +4,6 @@
   overflow: hidden;
 }
 
-/* Ambient background blobs */
 .blob1 {
   position: fixed;
   top: -200px;
@@ -43,7 +42,7 @@
   z-index: 1;
   max-width: 560px;
   margin: 0 auto;
-  padding: 0 1.5rem 25rem;
+  padding: 0 1.5rem 8rem;
 }
 
 .main {
@@ -52,41 +51,99 @@
   gap: 3rem;
 }
 
-/* Demo slider */
-.demoControl {
+.card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   padding: 1.25rem 1.5rem;
-  text-align: center;
 }
 
-.demoLabel {
+.resultCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.resultRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.resultKey {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   color: var(--color-text-muted);
-  margin-bottom: 0.75rem;
 }
 
-.slider {
+.resultVal {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.errorCard {
+  background: #ff3e6c11;
+  border: 1px solid #ff3e6c44;
+  border-radius: var(--radius);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-red);
+}
+
+.hitungBtn {
   width: 100%;
-  appearance: none;
-  height: 4px;
-  border-radius: 2px;
-  background: var(--color-border);
-  outline: none;
+  padding: 1rem;
+  background: linear-gradient(135deg, #a78bfa, #38bdf8);
+  border: none;
+  border-radius: var(--radius);
+  color: white;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
   cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+  letter-spacing: 0.02em;
 }
 
-.slider::-webkit-slider-thumb {
-  appearance: none;
-  width: 18px;
-  height: 18px;
+.hitungBtn:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.hitungBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btnLoading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btnLoading span {
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: var(--color-purple);
-  border: 2px solid var(--color-bg);
-  box-shadow: 0 0 8px var(--color-purple);
-  cursor: pointer;
+  background: white;
+  display: inline-block;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1); }
 }
 
 .footer {
@@ -98,11 +155,4 @@
 .mono {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-}
-
-.card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  padding: 1.25rem 1.5rem;
 }
