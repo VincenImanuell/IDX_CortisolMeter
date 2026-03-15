@@ -1,4 +1,4 @@
-# 😌 IDX Cortisol Meter
+# IDX Cortisol Meter
 
 > Ngitung dulu, panik belakangan.
 
@@ -25,7 +25,7 @@ Karena investor sejati itu *low cortisol*. Tapi tetap ngitung dulu sebelum santa
 
 ---
 
-## 🧮 Cara Kerja
+## Cara Kerja
 
 ### 1. Ambil Data Harga
 Data harga penutupan diambil dari Yahoo Finance untuk periode yang dipilih.
