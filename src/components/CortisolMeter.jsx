@@ -28,6 +28,12 @@ const CortisolMeter = () => {
       <div className={styles.container}>
         <Header />
 
+        {data && !loading && (
+          <div className={styles.stockTitle}>
+            {selectedStock.symbol.replace('.JK', '').replace('^', '')}
+          </div>
+        )}
+
         <main className={styles.main}>
           <CortisolGauge score={data?.cortisolScore ?? 0} loading={loading} />
 

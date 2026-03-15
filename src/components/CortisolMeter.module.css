@@ -187,3 +187,18 @@
 .links a:hover {
   opacity: 0.7;
 }
+
+.stockTitle {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 10vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  background: linear-gradient(135deg, #f0eeff 0%, #a78bfa 50%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  width: 100%;
+}
