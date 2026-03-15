@@ -1,10 +1,8 @@
 import yahooFinance from 'yahoo-finance2'
 
-// Calculate Historical Volatility
 const calcHV = (prices) => {
   if (prices.length < 2) return 0
 
-  // Daily log returns
   const returns = []
   for (let i = 1; i < prices.length; i++) {
     if (prices[i - 1] > 0 && prices[i] > 0) {
@@ -18,12 +16,9 @@ const calcHV = (prices) => {
   const variance = returns.reduce((sum, r) => sum + Math.pow(r - mean, 2), 0) / (returns.length - 1)
   const stdDev = Math.sqrt(variance)
 
-  // Annualized HV (×√252 trading days)
   return stdDev * Math.sqrt(252) * 100
 }
 
-// Map HV% to cortisol score 0–100
-// IDX typical HV range: ~10% (very calm) to ~80%+ (extreme)
 const hvToCortisolScore = (hv) => {
   const min = 5
   const max = 75
@@ -32,7 +27,6 @@ const hvToCortisolScore = (hv) => {
 }
 
 export default async function handler(req, res) {
-  // CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS')
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
@@ -58,6 +52,8 @@ export default async function handler(req, res) {
       period1: startDate,
       period2: endDate,
       interval: '1d',
+    }, {
+      fetchType: 'csv',
     })
 
     if (!result || result.length === 0) {
