@@ -89,11 +89,13 @@ export default async function handler(req, res) {
     const hv = calcHV(prices)
     const cortisolScore = hvToCortisolScore(hv)
 
-    const latestPrice = prices[prices.length - 1]
-    const prevPrice = prices[prices.length - 2]
+    // Gunakan meta regularMarketPrice dan chartPreviousClose dari Yahoo
+    const meta = result.meta
+    const latestPrice = meta.regularMarketPrice ?? prices[prices.length - 1]
+    const prevPrice = meta.chartPreviousClose ?? prices[prices.length - 2]
     const changePercent = prevPrice
-      ? ((latestPrice - prevPrice) / prevPrice) * 100
-      : 0
+    ? ((latestPrice - prevPrice) / prevPrice) * 100
+    : 0
 
     return res.status(200).json({
       symbol,

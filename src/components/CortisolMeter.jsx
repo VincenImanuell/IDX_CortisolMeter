@@ -3,6 +3,7 @@ import Header from './Header'
 import CortisolGauge from './CortisolGauge'
 import StockSelector from './StockSelector'
 import PeriodSelector from './PeriodSelector'
+import ResultExplanation from './ResultExplanation'
 import { useStockData } from '../hooks/useStockData'
 import { DEFAULT_PERIOD } from '../data/periods'
 import styles from './CortisolMeter.module.css'
@@ -58,6 +59,15 @@ const CortisolMeter = () => {
               <span>😵</span>
               <p>{error}</p>
             </div>
+          )}
+
+          {data && !loading && (
+            <>
+              <div className={styles.resultCard}>
+                ...
+              <ResultExplanation data={data} />
+              </div>
+            </>
           )}
 
           <div className={styles.card}>
